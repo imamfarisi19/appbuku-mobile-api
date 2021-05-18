@@ -1,0 +1,1 @@
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb.UWP\AppBuku.TMobileFromWeb.UWP.csproj;x86

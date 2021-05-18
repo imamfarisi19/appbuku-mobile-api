@@ -1,0 +1,63 @@
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csprojAssemblyReference.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfoInputs.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfo.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CoreCompileInputs.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.deps.json
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\Review1Page.xaml.g.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CopyComplete
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\NueAboutPage.xaml.g.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\UjiWebServicePage.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.deps.json
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csprojAssemblyReference.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\App.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\NueAboutPage.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\Review1Page.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\UjiWebServicePage.xaml.g.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfoInputs.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfo.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CoreCompileInputs.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\XamlC.stamp
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CopyComplete
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.deps.json
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.dll
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\NueAboutPage.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\Review1Page.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\UjiWebServicePage.xaml.g.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.AssemblyInfo.cs
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.csproj.CopyComplete
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb

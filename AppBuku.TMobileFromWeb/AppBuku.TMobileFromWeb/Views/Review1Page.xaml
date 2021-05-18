@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels"
+             x:DataType="viewmodels:Review1ViewModel"
+             Title="Query From Web"
+             x:Class="AppBuku.TMobileFromWeb.Views.Review1Page">
+    
+    <ContentPage.BindingContext>
+        <viewmodels:Review1ViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Button Text="Try Query" Command="{Binding TryQueryCmd}" />
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" />
+            <Label Text="{Binding JwbWebApi}" FontSize="18" />
+            <BoxView Margin="0,10" MinimumHeightRequest="4" HeightRequest="4" Color="DeepSkyBlue" />
+            <Label Text="{Binding Review1.Nama}" />
+            <Label Text="{Binding Review1.Rating}" />
+            <Label Text="{Binding Review1.IsiReview}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "011um3eqWqgL/t1lHzarNG6Zn6bgaecRLOSagSp4bw2ZHOAlocfwuETvkYRQ8w6hhu6jf1OgTTf2jadMxk1YPQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\source\\repos\\AppBukuT2\\AppBuku.Models\\AppBuku.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\litedb\\5.0.10\\litedb.5.0.10.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

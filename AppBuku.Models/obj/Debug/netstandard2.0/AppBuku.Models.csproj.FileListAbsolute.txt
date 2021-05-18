@@ -1,0 +1,27 @@
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.deps.json
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csprojAssemblyReference.cache
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfoInputs.cache
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfo.cs
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csproj.CoreCompileInputs.cache
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Work2021\Devel\02\AppBuku\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.deps.json
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csprojAssemblyReference.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfoInputs.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfo.cs
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csproj.CoreCompileInputs.cache
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Work2021\Devel\02\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.deps.json
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\bin\Debug\netstandard2.0\AppBuku.Models.pdb
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csprojAssemblyReference.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfoInputs.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.AssemblyInfo.cs
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.csproj.CoreCompileInputs.cache
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.dll
+D:\Code Editor 2\Buku Kuliah\Sem 6\pemrograman-mobile-mukhaimy-gazali\pertemuan-8\AppBukuT2\AppBuku.Models\obj\Debug\netstandard2.0\AppBuku.Models.pdb

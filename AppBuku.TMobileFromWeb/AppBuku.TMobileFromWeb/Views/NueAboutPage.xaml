@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Informasi Pembuat"
+             x:Class="AppBuku.TMobileFromWeb.Views.NueAboutPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Margin="0,80"
+                
+                HorizontalOptions="CenterAndExpand" >
+                <Label Margin ="0,0,0,40" Text="UJIAN TENGAH SEMESTER" HorizontalOptions="Center" 
+                       FontSize="22" TextColor="Black"/>
+                <Image Source="foto_mhs2.png" HorizontalOptions="Center" />
+                <Label Text="Imam Farisi" HorizontalOptions="Center" 
+                       FontSize="24" TextColor="DarkOrange"/>
+                <BoxView Margin="0,0" MinimumHeightRequest="2"
+                         HeightRequest="2" Color="Green" />
+                <Label Text="1855201110006" HorizontalOptions="Center" 
+                       FontSize="22" TextColor="Black"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
