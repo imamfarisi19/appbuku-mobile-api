@@ -21,7 +21,7 @@
                 <Label Text="{Binding ReviewBukuGet.Id}"/> 
                 <Label Text="{Binding ReviewBukuGet.BukuId}"/> 
                 <Label Text="{Binding ReviewBukuGet.Nama}"/>
-                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>-->
+                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>--> 
 
                 <ListView ItemsSource="{Binding ListReviewBukuById}" HeightRequest="100">
                     <ListView.ItemTemplate>
