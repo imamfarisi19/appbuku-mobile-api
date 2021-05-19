@@ -25,7 +25,9 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
 
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
-            myHttpClient = new Services.MyHttpClient(baseUri);           
+            myHttpClient = new Services.MyHttpClient(baseUri);
+            IsBusy = false;
+
         }
 
         private ICommand cmdGetData;
@@ -35,14 +37,13 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             {
                 if (cmdGetData == null)
                 {
-                    cmdGetData = new Command(async() => await PerformCmdGetDataAsync());
+                    cmdGetData = new Command(async () => await PerformCmdGetDataAsync());
                 }
 
                 return cmdGetData;
             }
         }
 
-        
         private async Task PerformCmdGetDataAsync()
         {
             if (!myHttpClient.IsEnable)
@@ -52,34 +53,37 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
 
             IsBusy = true;
-            try 
+            try
             {
                 string hsl = await myHttpClient.HttpGet("api/XReviewByBukuId/", "1");
                 HasilGet = hsl;
                 // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
                 var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hsl);
-                ListReviewBukuById = aLists; 
+                ListReviewBukuById = aLists;
 
                 // untuk setiap data yang ada pada aLists
                 foreach (ReviewBuku listform in aLists)
                 {
                     ReviewBukuGet = listform;
                 }
-
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                HasilGet = "ERROR: " + ex.Message; 
+                HasilGet = "ERROR: " + ex.Message;
             }
             finally
             {
                 IsBusy = false;
             }
-            
+
         }
 
+        private List<ReviewBuku> listReviewBukuById;
+        public List<ReviewBuku> ListReviewBukuById
+        { get => listReviewBukuById; set => SetProperty(ref listReviewBukuById, value); }
+
         private ReviewBuku reviewBukuGet;
-        public ReviewBuku ReviewBukuGet 
+        public ReviewBuku ReviewBukuGet
         { get => reviewBukuGet; set => SetProperty(ref reviewBukuGet, value); }
 
         private ICommand cmdPutData;
@@ -90,7 +94,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             {
                 if (cmdPutData == null)
                 {
-                    cmdPutData = new Command(async() => await PerformCmdPutDataAsync());
+                    cmdPutData = new Command(async () => await PerformCmdPutDataAsync());
                 }
 
                 return cmdPutData;
@@ -109,7 +113,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 Rating = rating,
                 IsiReview = $"Bapak {nama} menyatakan bahwa nilai buku adalah {rating}"
             };
-           
+
             IsBusy = true;
             try
             {
@@ -192,7 +196,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
             try
             {
-                string hsl = await myHttpClient.HttpDelete("api/XReview", "6");
+                string hsl = await myHttpClient.HttpDelete("api/XReview", "5");
                 StatusDelete = hsl;
             }
             catch (Exception ex)
@@ -217,17 +221,5 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         private string statusDelete;
         public string StatusDelete { get => statusDelete; set => SetProperty(ref statusDelete, value); }
 
-        private List<ReviewBuku> listReviewBukuById;
-        public List<ReviewBuku> ListReviewBukuById
-        {
-            get
-            {
-                return listReviewBukuById;
-            }
-            set
-            {
-                SetProperty(ref listReviewBukuById, value);
-            }
-        }
     }
 }

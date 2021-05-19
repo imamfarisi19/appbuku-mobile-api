@@ -61,3 +61,4 @@ C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromW
 C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.dll
 C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\ref\AppBuku.TMobileFromWeb.dll
 C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\AppBuku.TMobileFromWeb.pdb
+C:\Users\USER\source\repos\AppBukuT2\AppBuku.TMobileFromWeb\AppBuku.TMobileFromWeb\obj\Debug\netstandard2.0\Views\HalamanBukuPage.xaml.g.cs

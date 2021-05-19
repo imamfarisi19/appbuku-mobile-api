@@ -1,29 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels" 
-             xmlns:models="clr-namespace:AppBuku.Models;assembly=AppBuku.Models"
+             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels"
+             xmlns:models ="clr-namespace:AppBuku.Models;assembly=AppBuku.Models"
              x:DataType="viewmodels:UjiWebServiceViewModel"
              Title="{Binding Title}"
              x:Class="AppBuku.TMobileFromWeb.Views.UjiWebServicePage">
+
     <ContentPage.BindingContext>
         <viewmodels:UjiWebServiceViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Padding="20"> 
-                <ActivityIndicator  IsRunning="{Binding IsBusy}" /> 
+            <StackLayout Padding="10">
+                <ActivityIndicator  IsRunning="{Binding IsBusy}" />
 
-                <Button Text="GET DATA" Command="{Binding CmdGetData}" /> 
+                <Button Text="GET DATA" Command="{Binding CmdGetData}" />
                 <!--<Label Text="{Binding HasilGet}" TextColor="Blue" Margin="0,8" />
                 
                 <Label Text="{Binding ReviewBukuGet.Id}"/> 
                 <Label Text="{Binding ReviewBukuGet.BukuId}"/> 
                 <Label Text="{Binding ReviewBukuGet.Nama}"/>
-                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>--> 
+                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>-->
 
-                <ListView ItemsSource="{Binding ListReviewBukuById}" HeightRequest="100">
+                <!--<ListView ItemsSource="{Binding ListReviewBukuById}" HeightRequest="100">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="models:ReviewBuku">
                             <ViewCell>
@@ -37,7 +38,23 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
+                </ListView>-->
+
+                <CollectionView ItemsSource="{Binding ListReviewBukuById}"
+                                ItemsLayout="VerticalList"
+                                HeightRequest="300">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ReviewBuku">
+                            <StackLayout Padding="10" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Nama}"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding IsiReview}"
+                                       FontAttributes="Italic"
+                                       VerticalOptions="End" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
                 <BoxView Margin="0,10" MinimumHeightRequest="2" HeightRequest="2" Color="Chartreuse" />
                 <Button Text="EDIT / HTTP PUT" Command="{Binding CmdPutData}" />

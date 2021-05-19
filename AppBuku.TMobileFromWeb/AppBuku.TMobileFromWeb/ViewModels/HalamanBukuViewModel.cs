@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using AppBuku.Models;
 using System.Collections.ObjectModel;
-using Xamarin.Forms;
+using System.Linq;
 
 namespace AppBuku.TMobileFromWeb.ViewModels
 {
-    public class BukuViewModel : BaseViewModel
+    public class HalamanBukuViewModel : BaseViewModel
     {
         Services.MyHttpClient myHttpClient;
 
-        public BukuViewModel()
+        public HalamanBukuViewModel()
         {
             Title = "Daftar Buku";
             //reviewBukuGet = new ReviewBuku();
@@ -24,6 +24,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
             myHttpClient = new Services.MyHttpClient(baseUri);
+
+
             IsBusy = false;
 
         }
@@ -60,6 +62,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             try
             {
                 string hsl = await myHttpClient.HttpGet("api/XBuku/");
+
                 HasilGet = hsl;
                 // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
                 var aLists = JsonConvert.DeserializeObject<List<Buku>>(hsl);
@@ -76,5 +79,54 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
 
         }
+
+        private ICommand cmdReload;
+        public ICommand CmdReload
+        {
+            get
+            {
+                if (cmdReload == null)
+                {
+                    cmdReload = new Command(PerformCmdReload);
+                }
+
+                return cmdReload;
+            }
+        }
+
+        private async void PerformCmdReload()
+        {
+            if (!myHttpClient.IsEnable)
+            {
+                HasilGet = "MyHttpClient disabled!";
+                return;
+            }
+
+            IsBusy = true;
+            try
+            {
+                string hsl = await myHttpClient.HttpGet("api/XBuku/");
+                HasilGet = hsl;
+                // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+                var aLists = JsonConvert.DeserializeObject<List<Buku>>(hsl);
+                BukuSet = aLists;
+
+            }
+            catch (Exception ex)
+            {
+                HasilGet = "ERROR: " + ex.Message;
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        public void OnAppearing()
+        {
+            IsBusy = true;
+
+        }
+
     }
 }
