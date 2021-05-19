@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels"
+             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels" 
+             xmlns:models="clr-namespace:AppBuku.Models;assembly=AppBuku.Models"
              x:DataType="viewmodels:UjiWebServiceViewModel"
              Title="{Binding Title}"
              x:Class="AppBuku.TMobileFromWeb.Views.UjiWebServicePage">
@@ -15,29 +16,29 @@
                 <ActivityIndicator  IsRunning="{Binding IsBusy}" /> 
 
                 <Button Text="GET DATA" Command="{Binding CmdGetData}" /> 
-                <Label Text="{Binding HasilGet}" TextColor="Blue" Margin="0,8" />
+                <!--<Label Text="{Binding HasilGet}" TextColor="Blue" Margin="0,8" />
                 
                 <Label Text="{Binding ReviewBukuGet.Id}"/> 
                 <Label Text="{Binding ReviewBukuGet.BukuId}"/> 
-                <Label Text="{Binding ReviewBukuGet.Nama}"/> 
-                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>
+                <Label Text="{Binding ReviewBukuGet.Nama}"/>
+                <Label Text="{Binding ReviewBukuGet.IsiReview}"/>-->
 
-                <ListView Background="transparent">
-                    <ListView.ItemsSource>
-                        <x:Array Type="{x:Type x:String}"> 
-                            <x:String>Item One</x:String> 
-                            <x:String>Item Two</x:String> 
-                            <x:String>Item Three</x:String> 
-                        </x:Array>
-                    </ListView.ItemsSource>
+                <ListView ItemsSource="{Binding ListReviewBukuById}" HeightRequest="100">
                     <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <SwitchCell Text="{Binding .}"/>
-
+                        <DataTemplate x:DataType="models:ReviewBuku">
+                            <ViewCell>
+                                <StackLayout HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding Nama}" />
+                                    <Label Text="{Binding IsiReview}" TextColor="Black" 
+                                           HorizontalOptions="FillAndExpand" 
+                                           LineBreakMode="TailTruncation" 
+                                           MaxLines="4"/>
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                
+
                 <BoxView Margin="0,10" MinimumHeightRequest="2" HeightRequest="2" Color="Chartreuse" />
                 <Button Text="EDIT / HTTP PUT" Command="{Binding CmdPutData}" />
                 <Label Text="{Binding StatusPut}" />

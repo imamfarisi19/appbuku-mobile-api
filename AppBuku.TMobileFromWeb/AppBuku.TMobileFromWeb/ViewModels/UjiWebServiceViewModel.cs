@@ -25,9 +25,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
 
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
-            myHttpClient = new Services.MyHttpClient(baseUri);
-            IsBusy = false;
-            
+            myHttpClient = new Services.MyHttpClient(baseUri);           
         }
 
         private ICommand cmdGetData;
@@ -44,6 +42,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
         }
 
+        
         private async Task PerformCmdGetDataAsync()
         {
             if (!myHttpClient.IsEnable)
@@ -54,15 +53,19 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
             IsBusy = true;
             try 
-            { 
-                string hsl = await myHttpClient.HttpGet("api/XReviewByBukuId/", "1"); 
+            {
+                string hsl = await myHttpClient.HttpGet("api/XReviewByBukuId/", "1");
                 HasilGet = hsl;
                 // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
-                var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hsl); 
-                foreach (ReviewBuku listform in aLists) 
+                var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hsl);
+                ListReviewBukuById = aLists;
+
+                // untuk setiap data yang ada pada aLists
+                foreach (ReviewBuku listform in aLists)
                 {
-                    ReviewBukuGet = listform; 
+                    ReviewBukuGet = listform;
                 }
+
             }
             catch (Exception ex) 
             {
@@ -189,7 +192,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
             try
             {
-                string hsl = await myHttpClient.HttpDelete("api/XReview", "5");
+                string hsl = await myHttpClient.HttpDelete("api/XReview", "6");
                 StatusDelete = hsl;
             }
             catch (Exception ex)
@@ -212,7 +215,19 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         public string StatusPost { get => statusPost; set => SetProperty(ref statusPost, value); }
 
         private string statusDelete;
-        public string StatusDelete { get => statusDelete; set => SetProperty(ref statusDelete, value); }        
+        public string StatusDelete { get => statusDelete; set => SetProperty(ref statusDelete, value); }
 
+        private List<ReviewBuku> listReviewBukuById;
+        public List<ReviewBuku> ListReviewBukuById
+        {
+            get
+            {
+                return listReviewBukuById;
+            }
+            set
+            {
+                SetProperty(ref listReviewBukuById, value);
+            }
+        }
     }
 }
