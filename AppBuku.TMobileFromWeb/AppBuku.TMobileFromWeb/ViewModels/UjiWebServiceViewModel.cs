@@ -58,7 +58,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 HasilGet = hsl;
                 // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
                 var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hsl);
-                ListReviewBukuById = aLists;
+                ListReviewBukuById = aLists; 
 
                 // untuk setiap data yang ada pada aLists
                 foreach (ReviewBuku listform in aLists)
