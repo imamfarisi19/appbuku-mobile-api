@@ -13,6 +13,7 @@ namespace AppBuku.TMobileFromWeb
             InitializeComponent();
 
             Routing.RegisterRoute(nameof(ReviewBukuPage), typeof(ReviewBukuPage));
+            Routing.RegisterRoute(nameof(AddReviewPage), typeof(AddReviewPage));
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
