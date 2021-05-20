@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using AppBuku.Models;
 using System.Collections.ObjectModel;
 using System.Linq;
+using AppBuku.TMobileFromWeb.Views;
 
 namespace AppBuku.TMobileFromWeb.ViewModels
 {
@@ -20,12 +21,10 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         {
             Title = "Daftar Buku";
             //reviewBukuGet = new ReviewBuku();
-            IsBusy = true;
 
+            IsBusy = true;
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
             myHttpClient = new Services.MyHttpClient(baseUri);
-
-
             IsBusy = false;
 
         }
@@ -35,50 +34,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
         private string hasilGet;
         public string HasilGet { get => hasilGet; set => SetProperty(ref hasilGet, value); }
-
-        private ICommand cmdGetData;
-        public ICommand CmdGetData
-        {
-            get
-            {
-                if (cmdGetData == null)
-                {
-                    cmdGetData = new Command(async () => await PerformCmdGetDataAsync());
-                }
-
-                return cmdGetData;
-            }
-        }
-
-        private async Task PerformCmdGetDataAsync()
-        {
-            if (!myHttpClient.IsEnable)
-            {
-                HasilGet = "MyHttpClient disabled!";
-                return;
-            }
-
-            IsBusy = true;
-            try
-            {
-                string hsl = await myHttpClient.HttpGet("api/XBuku/");
-
-                HasilGet = hsl;
-                // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
-                var aLists = JsonConvert.DeserializeObject<List<Buku>>(hsl);
-                BukuSet = aLists;
-
-            }
-            catch (Exception ex)
-            {
-                HasilGet = "ERROR: " + ex.Message;
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-
-        }
 
         private ICommand cmdReload;
         public ICommand CmdReload
@@ -105,9 +60,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
             try
             {
-                string hsl = await myHttpClient.HttpGet("api/XBuku/");
-                HasilGet = hsl;
-                // reviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+                string hsl = await myHttpClient.HttpGet("api/XBuku/");                
                 var aLists = JsonConvert.DeserializeObject<List<Buku>>(hsl);
                 BukuSet = aLists;
 
@@ -127,6 +80,41 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
 
         }
+
+        public Buku selectedBuku;
+        public Buku SelectedBuku
+        {
+            get => selectedBuku;
+            set
+            {
+                SetProperty(ref selectedBuku, value);
+                PerformBukuTapped(value);
+            }
+        }
+
+        private Command<Buku> bukuTapped;
+        public Command<Buku> BukuTapped
+        {
+            get
+            {
+                if (bukuTapped == null)
+                {
+                    bukuTapped = new Command<Buku>(PerformBukuTapped);
+                }
+
+                return bukuTapped;
+            }
+        }
+
+        async void PerformBukuTapped(Buku item)
+        {
+            if (item == null)
+                return;
+
+            await Shell.Current.GoToAsync(
+                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
+        }
+
 
     }
 }
