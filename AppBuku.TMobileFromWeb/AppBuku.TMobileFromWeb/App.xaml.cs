@@ -18,7 +18,6 @@ namespace AppBuku.TMobileFromWeb
             this.Properties.Add("WebUsername", "u006imam");
             this.Properties.Add("WebPassword", "u006ima-@aqw67");
 
-            //DependencyService.Register<Services.MyHttpClient>();
             MainPage = new AppShell();
         }
 
