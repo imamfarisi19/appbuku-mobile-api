@@ -94,10 +94,10 @@
         <ShellContent Route="HalamanBukuPage" 
                       ContentTemplate="{DataTemplate local:HalamanBukuPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Review Buku Page Demo" Icon="icon_about.png">
+    <!--<FlyoutItem Title="Review Buku Page Demo" Icon="icon_about.png">
         <ShellContent Route="ReviewBukuPage" 
                       ContentTemplate="{DataTemplate local:ReviewBukuPage}" />
-    </FlyoutItem>
+    </FlyoutItem>-->
     <!--<FlyoutItem Title="Browse" Icon="icon_feed.png">
         <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
     </FlyoutItem>-->
