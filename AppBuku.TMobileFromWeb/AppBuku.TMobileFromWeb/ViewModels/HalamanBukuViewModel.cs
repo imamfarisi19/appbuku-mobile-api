@@ -112,7 +112,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 return;
 
             await Shell.Current.GoToAsync(
-                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
+                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel)}={item.Id}");
         }
 
 
