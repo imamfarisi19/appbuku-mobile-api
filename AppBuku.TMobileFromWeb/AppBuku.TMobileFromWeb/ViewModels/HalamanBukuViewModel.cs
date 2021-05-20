@@ -75,12 +75,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
         }
 
-        public void OnAppearing()
-        {
-            IsBusy = true;
-
-        }
-
         public Buku selectedBuku;
         public Buku SelectedBuku
         {
@@ -112,9 +106,13 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 return;
 
             await Shell.Current.GoToAsync(
-                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel)}={item.Id}");
+                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
         }
 
+        public void OnAppearing()
+        {
+            IsBusy = true;
 
+        }
     }
 }
