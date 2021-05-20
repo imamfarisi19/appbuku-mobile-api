@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels" 
+             xmlns:viewmodels1="clr-namespace:AppBuku.TMobileFromWeb.Views" 
+             xmlns:models="clr-namespace:AppBuku.Models;assembly=AppBuku.Models"
+             x:DataType="viewmodels:ReviewBukuViewModel"
+             x:Class="AppBuku.TMobileFromWeb.Views.ReviewBukuPage">
+    
+    <ContentPage.BindingContext>
+        <viewmodels1:ReviewBukuPage />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Judul" />
+            <Entry Text="{Binding BukuEdit.Judul}" />
+            <Label Text="Penulis" />
+            <Entry Text="{Binding BukuEdit.Penulis}" />
+            <Label Text="Penerbit" />
+            <Entry Text="{Binding BukuEdit.Penerbit}" />
+            <Label Text="Tahun" />
+            <Entry Text="{Binding BukuEdit.Tahun}" Keyboard="Numeric" />
+            <Label Text="Url Gambar" />
+            <Entry Text="{Binding BukuEdit.UrlGambar}"/>
+            <BoxView MinimumHeightRequest="10" Margin="0, 10" />
+
+            <Button Text="Batal" Margin="0,4" Command="{Binding CmdBatal}" />
+            <Button Text="Simpan" Margin="0,4" Command="{Binding CmdSimpan}" />
+            <Button Text="Hapus" Margin="0,4" Command="{Binding CmdHapus}" 
+                    IsVisible="{Binding HapusIsVisible}" />
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
