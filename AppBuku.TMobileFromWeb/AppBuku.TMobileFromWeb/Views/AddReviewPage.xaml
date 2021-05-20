@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:AppBuku.TMobileFromWeb.ViewModels" 
+             xmlns:models="clr-namespace:AppBuku.Models;assembly=AppBuku.Models"
+             x:DataType="viewmodels:AddReviewViewModel"
+             Title="{Binding Title}"
+             x:Class="AppBuku.TMobileFromWeb.Views.AddReviewPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:AddReviewViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <StackLayout>
+                <Label Text="Isi Ulasan" />
+                <Entry Text="{Binding UlasanData.IsiReview, Mode=TwoWay}" />
+                <Label Text="Rating" />
+                <Entry Text="{Binding UlasanData.Rating, Mode=TwoWay}" Keyboard="Numeric"/>
+            </StackLayout>
+            
+            <StackLayout>
+            <Button Text="Kirim" Command="{Binding CmdKirim}"/>
+            <Label Text="{Binding StatusKirim}" />
+        </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
