@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppBuku.TMobileFromWeb.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace AppBuku.TMobileFromWeb.Views
         public AddReviewPage()
         {
             InitializeComponent();
-            BindingContext = new ViewModels.AddReviewViewModel();
+            BindingContext = new AddReviewViewModel();
         }
     }
 }
