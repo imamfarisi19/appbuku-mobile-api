@@ -20,6 +20,8 @@
                 <Entry Text="{Binding Reviewing}" />
                 <Label Text="Peringkat Buku (1 - 5)" />
                 <Entry Text="{Binding Rating}" Keyboard="Numeric"/>
+                <Label Text="Buku ke : "/>
+                <Label Text="{Binding BukuKe}"/>
             </StackLayout>
 
             <StackLayout Padding="0">
