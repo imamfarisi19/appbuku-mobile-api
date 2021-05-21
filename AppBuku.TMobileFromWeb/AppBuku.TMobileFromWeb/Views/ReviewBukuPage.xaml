@@ -77,8 +77,9 @@
                                 HeightRequest="300">
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="models:ReviewBuku">
-                                <StackLayout Padding="0,10,0,30"  HorizontalOptions="FillAndExpand">
-                                    <Label Text="{Binding Nama}" FontAttributes="Bold" />
+                                <ContentView>
+                                    <StackLayout Padding="0,10,0,30"  HorizontalOptions="FillAndExpand">
+                                        <Label Text="{Binding Nama}" FontAttributes="Bold" />
                                     <Label Padding="0,0,0,0" VerticalOptions="End">
                                         <Label.FormattedText>
                                             <FormattedString>
@@ -88,16 +89,22 @@
                                         </Label.FormattedText>
                                     </Label>
                                     <Label Text="{Binding IsiReview}" FontAttributes="Italic" />
-                                    
-                                    
-                                </StackLayout>
+                                    </StackLayout>
+                                    <ContentView.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:HalamanBukuViewModel}}, Path=BukuTapped}"		
+                                        CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </ContentView.GestureRecognizers>
+                                </ContentView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </StackLayout>
 
                 <BoxView Margin="0,10" MinimumHeightRequest="2" HeightRequest="2" Color="Chartreuse" />
-                <Button Text="Batal" Margin="0,4" Command="{Binding CmdBatal}" />
+                <Button Text="Tambah Ulasan" Margin="0,4" Command="{Binding CmdAdd}" />
                 <Button Text="Simpan" Margin="0,4" Command="{Binding CmdSimpan}" />
                 <Button Text="Hapus" Margin="0,4" Command="{Binding CmdHapus}" 
                     IsVisible="{Binding HapusIsVisible}" />
@@ -105,7 +112,3 @@
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-
-<!--<Label.GestureRecognizers>
-    <TapGestureRecognizer Command="{Binding CmdUrl}" />
-</Label.GestureRecognizers>-->
