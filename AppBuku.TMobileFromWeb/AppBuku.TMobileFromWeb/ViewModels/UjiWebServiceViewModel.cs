@@ -156,8 +156,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 Nama = nama,
                 Rating = rating,
                 IsiReview = $"{nama} menyatakan bahwa rating buku adalah {rating}. Lorem " +
-                "ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt " +
-                "ut labore et dolore magna aliqua."
+                            "ipsum dolor sit amet, consectetur adipiscing elit, sed do " +
+                            "eiusmod tempor incididunt ut labore et dolore magna aliqua."
             };
 
             IsBusy = true;
