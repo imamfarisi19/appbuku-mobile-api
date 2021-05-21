@@ -10,20 +10,22 @@
     <ContentPage.BindingContext>
         <viewmodels:AddReviewViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout Padding="20">
             <StackLayout>
+                <Label Text="Nama" />
+                <Entry Text="{Binding Nama}" />
                 <Label Text="Isi Ulasan" />
-                <Entry Text="{Binding UlasanData.IsiReview, Mode=TwoWay}" />
-                <Label Text="Rating" />
-                <Entry Text="{Binding UlasanData.Rating, Mode=TwoWay}" Keyboard="Numeric"/>
+                <Entry Text="{Binding Reviewing}" />
+                <Label Text="Peringkat Buku (1 - 5)" />
+                <Entry Text="{Binding Rating}" Keyboard="Numeric"/>
             </StackLayout>
-            
-            <StackLayout>
-            <Button Text="Kirim" Command="{Binding CmdKirim}"/>
-            <Label Text="{Binding StatusKirim}" />
-        </StackLayout>
+
+            <StackLayout Padding="0">
+                <Button Text="Kirim" Margin="0,10" Command="{Binding CmdKirim}" />
+                <Button Text="Kembali" Command="{Binding CmdBatal}"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
