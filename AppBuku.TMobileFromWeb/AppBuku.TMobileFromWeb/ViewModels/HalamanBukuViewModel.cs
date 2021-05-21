@@ -63,7 +63,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 string hsl = await myHttpClient.HttpGet("api/XBuku/");                
                 var aLists = JsonConvert.DeserializeObject<List<Buku>>(hsl);
                 BukuSet = aLists;
-
             }
             catch (Exception ex)
             {
@@ -105,8 +104,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             if (item == null)
                 return;
 
-            await Shell.Current.GoToAsync(
-                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
+            //await Shell.Current.GoToAsync(
+            //    $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
         }
 
         public void OnAppearing()

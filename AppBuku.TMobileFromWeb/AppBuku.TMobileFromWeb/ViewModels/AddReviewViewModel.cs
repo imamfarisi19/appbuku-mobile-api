@@ -6,10 +6,13 @@ using System.Windows.Input;
 using System.Runtime.CompilerServices;
 using AppBuku.Models;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AppBuku.TMobileFromWeb.ViewModels
 {
-    public class AddReviewViewModel :BaseViewModel
+    [QueryProperty(nameof(TheBukuId), nameof(TheBukuId))]
+    //[QueryProperty(nameof(myBukuId), nameof(myBukuId))]
+    public class AddReviewViewModel : BaseViewModel
     {
         // Deklarasi MyHttpClient Service + Constructor Class
         Services.MyHttpClient myHttpClient;
@@ -23,9 +26,17 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             IsBusy = true;
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
             myHttpClient = new Services.MyHttpClient(baseUri);
-
+            
             int rating = rnd.Next(1, 5);
             Rating = rating.ToString();
+
+            //ReviewBuku buku = new ReviewBuku();
+            //Review.BukuId = buku.BukuId;
+
+            HalamanBukuViewModel book = new HalamanBukuViewModel();
+            string a = book.HasilGet;
+            
+
             IsBusy = false;
         } 
 
@@ -45,18 +56,19 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
         private async Task PerformCmdKirimAsync()
         {
-            ReviewBuku r1 = new ReviewBuku()
-            {
-                BukuId = 1
-            };
+            ReviewBuku r1 = new ReviewBuku();
 
             r1.Nama = nama;
             r1.IsiReview = Reviewing;
             r1.Rating = int.Parse(Rating);
+            r1.BukuId = int.Parse(BukuKe);
+            //r1.BukuId = int.Parse(BukuKe);
 
             IsBusy = true;
             try
             {
+
+
                 string hsl = await myHttpClient.HttpPost("api/XReview", r1);
                 StatusKirim = hsl;
 
@@ -85,11 +97,55 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 return cmdBatal;
             }
         }
-
         private async void PerformCmdBatal()
         {
             await Shell.Current.GoToAsync("..");
         }
+
+        private string theBukuId;
+        public string TheBukuId
+        {
+            get
+            {
+                return theBukuId;
+            }
+            set
+            {
+                theBukuId = value;
+                //myBukuId = TheBukuId;
+                LoadById(value);
+            }
+        }
+
+        private void LoadById(string myBukuId)
+        {
+            if (string.IsNullOrEmpty(myBukuId))
+                return;
+            
+            int id = 0;
+            if (int.TryParse(myBukuId, out id) == false)
+                return;
+
+            BukuKe = myBukuId;
+            
+            //string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", );
+
+            //string hslXReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", theBukuId);
+            //string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theBukuId);
+            //HasilGet = hslXBuku;
+            //BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku);
+            //ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+
+            //var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview);
+            //ListReviewById = aLists;
+
+            //var aLists = JsonConvert.DeserializeObject<ReviewBuku>(hslXReview);
+            //Review = aLists;
+
+            //isNewItem = false;
+            //HapusIsVisible = true;
+        }
+
 
         private string nama = "Imam Farisi";
         public string Nama
@@ -107,14 +163,33 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         public ReviewBuku Review
         { get => review; set => SetProperty(ref review, value); }
 
-        private string reviwing = "Lorem ipsum dolor sit amet, consectetur " +
+        private string reviewing = "Lorem ipsum dolor sit amet, consectetur " +
                                   "adipiscing elit, sed do eiusmod tempor " +
                                   "incididunt ut labore et dolore magna aliqua.";
         public string Reviewing 
-        { get => reviwing; set => SetProperty(ref reviwing, value); }
+        { get => reviewing; set => SetProperty(ref reviewing, value); }
         
         private string rating;
         public string Rating 
         { get => rating; set => SetProperty(ref rating, value); }
+
+        private string hasilGet;
+        public string HasilGet
+        { get => hasilGet; set => SetProperty(ref hasilGet, value); }
+
+        private string bukuKe;
+        public string BukuKe 
+        { get => bukuKe; set => SetProperty(ref bukuKe, value); }
+
+        private Buku bukuEdit;
+        public Buku BukuEdit
+        {
+            get { return bukuEdit; }
+            set { SetProperty(ref bukuEdit, value); }
+        }
+
+        private List<Buku> bukuById;
+        public List<Buku> BukuById
+        { get => bukuById; set => SetProperty(ref bukuById, value); }
     }
 }

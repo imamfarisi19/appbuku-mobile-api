@@ -13,6 +13,7 @@ using AppBuku.TMobileFromWeb.Views;
 namespace AppBuku.TMobileFromWeb.ViewModels
 {
     [QueryProperty(nameof(TheId), nameof(TheId))]
+    
     public class ReviewBukuViewModel : BaseViewModel
     {
         // Deklarasi MyHttpClient Service + Constructor Class
@@ -36,9 +37,9 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             get { return bukuEdit; }
             set { SetProperty(ref bukuEdit, value); }
         }
+        
 
-
-        private string theId;
+        public string theId;
         public string TheId
         {
             get
@@ -52,7 +53,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
         }
 
-        private async void LoadById(string theId)
+        public async void LoadById(string theId)
         {
             if (string.IsNullOrEmpty(theId))
                 return;
@@ -60,17 +61,66 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             int id = 0;
             if (int.TryParse(theId, out id) == false)
                 return;
+
             string hslXReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", theId);
             string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theId);
             HasilGet = hslXBuku;
             BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku);
             //ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+            //idBuku = BukuEdit.Id.ToString();
 
             var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview);
             ListReviewBukuById = aLists;
 
             isNewItem = false;
             HapusIsVisible = true;
+        }
+
+        public Buku selectedCmdAdd;
+        public Buku SelectedCmdAdd
+        {
+            get => selectedCmdAdd;
+            set
+            {
+                SetProperty(ref selectedCmdAdd, value);
+                PerformCmdAddTapped(value);
+            }
+        }
+
+        private Command<Buku> cmdAddTapped;
+        public Command<Buku> CmdAddTapped
+        {
+            get
+            {
+                if (cmdAddTapped == null)
+                {
+                    cmdAddTapped = new Command<Buku>(PerformCmdAddTapped);
+                }
+
+                return cmdAddTapped;
+            }
+        }
+
+        async void PerformCmdAddTapped(Buku item)
+        {
+            if (item == null)
+                return;
+
+            await Shell.Current.GoToAsync(
+                $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.TheBukuId)}={item.Id}");
+            //await Shell.Current.GoToAsync(
+            //    $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.myIdBook)}={item.Id}");
+        }
+
+        public Buku cmdAdded;
+        public Buku CmdAdded
+        {
+            get => cmdAdded;
+            set
+            {
+                SetProperty(ref cmdAdded, value);
+                PerformCmdAddTapped(value);
+            }
         }
 
         private ICommand cmdAdd;
@@ -89,8 +139,43 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
         private async void PerformCmdAdd()
         {
+
             await Shell.Current.GoToAsync(
                 $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel)}");
+        }
+
+        public ReviewBuku selectedReview;
+        public ReviewBuku SelectedReview
+        {
+            get => selectedReview;
+            set
+            {
+                SetProperty(ref selectedReview, value);
+                PerformReviewTapped(value);
+            }
+        }
+
+        private Command<ReviewBuku> reviewTapped;
+        public Command<ReviewBuku> ReviewTapped
+        {
+            get
+            {
+                if (reviewTapped == null)
+                {
+                    reviewTapped = new Command<ReviewBuku>(PerformReviewTapped);
+                }
+
+                return reviewTapped;
+            }
+        }
+
+        async void PerformReviewTapped(ReviewBuku item)
+        {
+            if (item == null)
+                return;
+
+            //await Shell.Current.GoToAsync(
+            //    $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.TheBukuId)}={item.BukuId}");
         }
 
         private ICommand cmdHapus;
@@ -164,53 +249,14 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         public List<ReviewBuku> ListReviewBukuById
         { get => listReviewBukuById; set => SetProperty(ref listReviewBukuById, value); }
 
-
-        private ICommand cmdUrl;
-        public ICommand CmdUrl
-        {
-            get
-            {
-                if (cmdUrl == null)
-                {
-                    cmdUrl = new Command(PerformCmdUrl);
-                }
-
-                return cmdUrl;
-            }
-        }
-
-        private void PerformCmdUrl()
-        {
-            string tes = "testing gesture tap";
-            CmdUrltest = tes;
-        }
-
-        private string cmdUrltest;
-        public string CmdUrltest
-        { get => cmdUrltest; set => SetProperty(ref cmdUrltest, value); }
-
-        private ICommand cmdTapUrl;
-        public ICommand CmdTapUrl
-        {
-            get
-            {
-                if (cmdTapUrl == null)
-                {
-                    cmdTapUrl = new Command(PerformCmdTapUrl);
-                }
-
-                return cmdTapUrl;
-            }
-        }
-
-        private void PerformCmdTapUrl()
-        {
-        }
-
         [Obsolete]
         public ICommand ClickCommand => new Command<string>((url) =>
         {
             Device.OpenUri(new Uri(url));
         });
+
+        public string idBuku;
+        public string IdBuku
+        { get => idBuku; set => SetProperty(ref idBuku, value); }
     }
 }
