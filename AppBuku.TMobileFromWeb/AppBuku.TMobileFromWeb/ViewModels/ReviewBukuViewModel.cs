@@ -73,21 +73,21 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             HapusIsVisible = true;
         }
 
-        private ICommand cmdBatal;
-        public ICommand CmdBatal
+        private ICommand cmdAdd;
+        public ICommand CmdAdd
         {
             get
             {
-                if (cmdBatal == null)
+                if (cmdAdd == null)
                 {
-                    cmdBatal = new Command(PerformCmdBatal);
+                    cmdAdd = new Command(PerformCmdAdd);
                 }
 
-                return cmdBatal;
+                return cmdAdd;
             }
         }
 
-        private async void PerformCmdBatal()
+        private async void PerformCmdAdd()
         {
             await Shell.Current.GoToAsync(
                 $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel)}");
