@@ -27,6 +27,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
             myHttpClient = new Services.MyHttpClient(baseUri);
 
+            HapusIsVisible = false;
             IsBusy = false;
         }
 
@@ -48,12 +49,13 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
         private async Task PerformCmdKirimAsync()
         {
-            ReviewBuku r1 = new ReviewBuku();
-            r1.Nama = ReviewById.Nama;
-            r1.IsiReview = ReviewById.IsiReview;
-            r1.Rating = ReviewById.Rating;
-            r1.BukuId = ReviewById.BukuId;
+            ReviewBuku r1 = new ReviewBuku(); 
+            r1.Nama = ReviewById.Nama; 
+            r1.IsiReview = ReviewById.IsiReview; 
+            r1.Rating = ReviewById.Rating; 
+            r1.BukuId = ReviewById.BukuId; 
             r1.Id = ReviewById.Id;
+            r1.UserId = reviewById.UserId;
 
             if (BukuKe != null)
             {
@@ -62,22 +64,23 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
                 foreach (ReviewBuku array in listReviewById)
                 {
-                    if (r1.Id != array.Id)
+                    if (r1.Id != array.Id && r1.UserId != array.UserId)
                         isNewItem = true;
-                    else
-                        isNewItem = false;
                 }
             }
-
-            if (r1 != r2 && r1.Id == r2.Id)
-                isNewItem = false;
-
+            else
+            {
+                if (r1.Id == r2.Id)
+                    isNewItem = false;
+            }
             IsBusy = true;
             try
             {
                 if (isNewItem)
-                { 
+                {
+                    r1.Id = 0;
                     string hsl = await myHttpClient.HttpPost("api/XReview", r1);
+                    StatusKirim = hsl;
                 }
                 else
                 {
@@ -141,6 +144,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
             string hsl = await myHttpClient.HttpGet("api/XReview/", theBukuId);
             reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+
+            reviewById.BukuId = int.Parse(theBukuId);
         }
         public ReviewBuku r3 = new ReviewBuku();
 
@@ -171,6 +176,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             string hsl = await myHttpClient.HttpGet("api/XReview/", review);
             reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
             r2 = reviewById;
+
+            HapusIsVisible = true;
             isNewItem = false;
         }
 
@@ -218,6 +225,39 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         private List<Buku> bukuById;
         public List<Buku> BukuById
         { get => bukuById; set => SetProperty(ref bukuById, value); }
+
+        private bool hapusIsVisible;
+        public bool HapusIsVisible
+        {
+            get => hapusIsVisible;
+            set => SetProperty(ref hapusIsVisible, value);
+        }
+
+        private ICommand cmdHapus;
+
+        public ICommand CmdHapus
+        {
+            get
+            {
+                if (cmdHapus == null)
+                {
+                    cmdHapus = new Command(PerformCmdHapus);
+                }
+
+                return cmdHapus;
+            }
+        }
+
+        private async void PerformCmdHapus()
+        {
+            bool jwb = await Application.Current.MainPage.DisplayAlert("Hapus Ulasan",
+                "Apakah anda yakin untuk menghapus Ulasan ini?", "Ya", "Tidak");
+            if (jwb)
+            {
+                string hsl = await myHttpClient.HttpDelete("api/XReview/", r2.Id.ToString());
+                await Shell.Current.GoToAsync("..");
+            }
+        }
     }
 }
 
