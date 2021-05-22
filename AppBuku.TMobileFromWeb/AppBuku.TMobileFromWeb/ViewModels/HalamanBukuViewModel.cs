@@ -104,8 +104,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             if (item == null)
                 return;
 
-            //await Shell.Current.GoToAsync(
-            //    $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
+            await Shell.Current.GoToAsync(
+                $"{nameof(ReviewBukuPage)}?{nameof(ReviewBukuViewModel.TheId)}={item.Id}");
         }
 
         public void OnAppearing()
