@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 namespace AppBuku.TMobileFromWeb.ViewModels
 {
     [QueryProperty(nameof(TheBukuId), nameof(TheBukuId))]
-    //[QueryProperty(nameof(myBukuId), nameof(myBukuId))]
+    [QueryProperty(nameof(Review), nameof(Review))]
     public class AddReviewViewModel : BaseViewModel
     {
         // Deklarasi MyHttpClient Service + Constructor Class
@@ -21,24 +21,16 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         public AddReviewViewModel()
         {
             //reviewBukuGet = new ReviewBuku(); 
-            Title = "Tambah Ulasan Buku";
+            Title = "Ulasan Buku";
 
             IsBusy = true;
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
             myHttpClient = new Services.MyHttpClient(baseUri);
-            
-            int rating = rnd.Next(1, 5);
-            Rating = rating.ToString();
-
-            //ReviewBuku buku = new ReviewBuku();
-            //Review.BukuId = buku.BukuId;
-
-            HalamanBukuViewModel book = new HalamanBukuViewModel();
-            string a = book.HasilGet;
-            
 
             IsBusy = false;
-        } 
+        }
+
+        bool isNewItem = true;
 
         private ICommand cmdKirim;
         public ICommand CmdKirim
@@ -57,21 +49,41 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         private async Task PerformCmdKirimAsync()
         {
             ReviewBuku r1 = new ReviewBuku();
+            r1.Nama = ReviewById.Nama;
+            r1.IsiReview = ReviewById.IsiReview;
+            r1.Rating = ReviewById.Rating;
+            r1.BukuId = ReviewById.BukuId;
+            r1.Id = ReviewById.Id;
 
-            r1.Nama = nama;
-            r1.IsiReview = Reviewing;
-            r1.Rating = int.Parse(Rating);
-            r1.BukuId = int.Parse(BukuKe);
-            //r1.BukuId = int.Parse(BukuKe);
+            if (BukuKe != null)
+            {
+                string hslReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", BukuKe);
+                ListReviewById = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslReview);
+
+                foreach (ReviewBuku array in listReviewById)
+                {
+                    if (r1.Id != array.Id)
+                        isNewItem = true;
+                    else
+                        isNewItem = false;
+                }
+            }
+
+            if (r1 != r2 && r1.Id == r2.Id)
+                isNewItem = false;
 
             IsBusy = true;
             try
             {
-
-
-                string hsl = await myHttpClient.HttpPost("api/XReview", r1);
-                StatusKirim = hsl;
-
+                if (isNewItem)
+                { 
+                    string hsl = await myHttpClient.HttpPost("api/XReview", r1);
+                }
+                else
+                {
+                    string hsl = await myHttpClient.HttpPut("api/XReview/", ReviewById.Id.ToString(), ReviewById);
+                    StatusKirim = hsl;
+                }
                 await Shell.Current.GoToAsync("..");
             } 
             catch (Exception ex)
@@ -112,60 +124,75 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             set
             {
                 theBukuId = value;
-                //myBukuId = TheBukuId;
-                LoadById(value);
+                LoadByIdAsync(value);
             }
         }
 
-        private void LoadById(string myBukuId)
+        private async void LoadByIdAsync(string theBukuId)
         {
-            if (string.IsNullOrEmpty(myBukuId))
+            if (string.IsNullOrEmpty(theBukuId))
                 return;
             
             int id = 0;
-            if (int.TryParse(myBukuId, out id) == false)
+            if (int.TryParse(theBukuId, out id) == false)
                 return;
 
-            BukuKe = myBukuId;
-            
-            //string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", );
+            BukuKe = theBukuId;
 
-            //string hslXReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", theBukuId);
-            //string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theBukuId);
-            //HasilGet = hslXBuku;
-            //BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku);
-            //ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+            string hsl = await myHttpClient.HttpGet("api/XReview/", theBukuId);
+            reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+        }
+        public ReviewBuku r3 = new ReviewBuku();
 
-            //var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview);
-            //ListReviewById = aLists;
-
-            //var aLists = JsonConvert.DeserializeObject<ReviewBuku>(hslXReview);
-            //Review = aLists;
-
-            //isNewItem = false;
-            //HapusIsVisible = true;
+        private string review;
+        public string Review
+        {
+            get
+            {
+                return review;
+            }
+            set
+            {
+                review = value;
+                LoadReviewById(value);
+            }
         }
 
+        private async void LoadReviewById(string review)
+        {
+            if (string.IsNullOrEmpty(review))
+                return;
 
-        private string nama = "Imam Farisi";
+            int id = 0;
+            if (int.TryParse(review, out id) == false)
+                return;
+            Title = "Perbarui Ulasan";
+
+            string hsl = await myHttpClient.HttpGet("api/XReview/", review);
+            reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+            r2 = reviewById;
+            isNewItem = false;
+        }
+
+        public ReviewBuku r2 = new ReviewBuku();
+
+        private string nama;
         public string Nama
         { get => nama; set => SetProperty(ref nama, value); }
 
         private string statusKirim;
         public string StatusKirim 
-        { get => statusKirim; set => SetProperty(ref statusKirim, value); } 
+        { get => statusKirim; set => SetProperty(ref statusKirim, value); }
+
+        private ReviewBuku reviewById;
+        public ReviewBuku ReviewById
+        { get => reviewById; set => SetProperty(ref reviewById, value); }
 
         private List<ReviewBuku> listReviewById;
         public List<ReviewBuku> ListReviewById
         { get => listReviewById; set => SetProperty(ref listReviewById, value); } 
 
-        private ReviewBuku review;
-        public ReviewBuku Review
-        { get => review; set => SetProperty(ref review, value); }
-
-        private string reviewing = "Lorem ipsum dolor sit amet, consectetur " +
-                                  "adipiscing elit, sed do eiusmod tempor " +
-                                  "incididunt ut labore et dolore magna aliqua.";
+        private string reviewing;
         public string Reviewing 
         { get => reviewing; set => SetProperty(ref reviewing, value); }
         
@@ -193,3 +220,24 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         { get => bukuById; set => SetProperty(ref bukuById, value); }
     }
 }
+
+
+//int rating = rnd.Next(1, 5);
+//Rating = rating.ToString();
+
+//"Lorem ipsum dolor sit amet, consectetur " +
+//"adipiscing elit, sed do eiusmod tempor " +
+//"incididunt ut labore et dolore magna aliqua."
+
+//string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theBukuId);
+//HasilGet = hslXBuku;
+//BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku);
+
+//ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
+
+//string hslXReview = await myHttpClient.HttpGet("api/XReview/", theBukuId);
+//var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview);
+//ListReviewById = aLists;
+
+//var aLists = JsonConvert.DeserializeObject<ReviewBuku>(hslXReview);
+//Review = aLists;
