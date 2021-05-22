@@ -15,13 +15,13 @@
         <StackLayout Padding="20">
             <StackLayout>
                 <Label Text="Nama" />
-                <Entry Text="{Binding Nama}" />
+                <Entry Text="{Binding ReviewById.Nama}" />
                 <Label Text="Isi Ulasan" />
-                <Entry Text="{Binding Reviewing}" />
+                <Entry Text="{Binding ReviewById.IsiReview}" />
                 <Label Text="Peringkat Buku (1 - 5)" />
-                <Entry Text="{Binding Rating}" Keyboard="Numeric"/>
+                <Entry Text="{Binding ReviewById.Rating}" Keyboard="Numeric"/>
                 <Label Text="Buku ke : "/>
-                <Label Text="{Binding BukuKe}"/>
+                <Label Text="{Binding ReviewById.BukuId}"/>
             </StackLayout>
 
             <StackLayout Padding="0">
