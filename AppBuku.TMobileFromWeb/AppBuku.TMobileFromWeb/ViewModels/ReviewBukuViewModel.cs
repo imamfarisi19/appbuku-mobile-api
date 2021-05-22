@@ -37,6 +37,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             get { return bukuEdit; }
             set { SetProperty(ref bukuEdit, value); }
         }
+
+
         
 
         public string theId;
@@ -53,30 +55,30 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             }
         }
 
-        public async void LoadById(string theId)
-        {
-            if (string.IsNullOrEmpty(theId))
-                return;
+        public async void LoadById(string theId) 
+        { 
+            if (string.IsNullOrEmpty(theId)) 
+                return; 
 
-            int id = 0;
-            if (int.TryParse(theId, out id) == false)
-                return;
+            int id = 0; 
+            if (int.TryParse(theId, out id) == false) 
+                return; 
 
-            string hslXReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", theId);
-            string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theId);
-            HasilGet = hslXBuku;
-            BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku);
-            //ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
-            //idBuku = BukuEdit.Id.ToString();
+            string hslXReview = await myHttpClient.HttpGet("api/XReviewByBukuId/", theId); 
+            string hslXBuku = await myHttpClient.HttpGet("api/XBuku/", theId); 
+            HasilGet = hslXBuku; 
+            BukuEdit = JsonConvert.DeserializeObject<Buku>(hslXBuku); 
+            //ReviewBukuGet = JsonConvert.DeserializeObject<ReviewBuku>(hsl); 
+            //idBuku = BukuEdit.Id.ToString(); 
 
-            var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview);
+            var aLists = JsonConvert.DeserializeObject<List<ReviewBuku>>(hslXReview); 
             ListReviewBukuById = aLists;
 
-            isNewItem = false;
-            HapusIsVisible = true;
+            isNewItem = false; 
+            HapusIsVisible = true; 
         }
 
-        public Buku selectedCmdAdd;
+        private Buku selectedCmdAdd;
         public Buku SelectedCmdAdd
         {
             get => selectedCmdAdd;
@@ -108,20 +110,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
             await Shell.Current.GoToAsync(
                 $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.TheBukuId)}={item.Id}");
-            //await Shell.Current.GoToAsync(
-            //    $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.myIdBook)}={item.Id}");
         }
 
-        public Buku cmdAdded;
-        public Buku CmdAdded
-        {
-            get => cmdAdded;
-            set
-            {
-                SetProperty(ref cmdAdded, value);
-                PerformCmdAddTapped(value);
-            }
-        }
 
         private ICommand cmdAdd;
         public ICommand CmdAdd
@@ -139,9 +129,9 @@ namespace AppBuku.TMobileFromWeb.ViewModels
 
         private async void PerformCmdAdd()
         {
-
+            int a = BukuEdit.Id;
             await Shell.Current.GoToAsync(
-                $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel)}");
+                $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.TheBukuId)}={a}");
         }
 
         public ReviewBuku selectedReview;
@@ -174,8 +164,8 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             if (item == null)
                 return;
 
-            //await Shell.Current.GoToAsync(
-            //    $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.TheBukuId)}={item.BukuId}");
+            await Shell.Current.GoToAsync(
+                $"{nameof(AddReviewPage)}?{nameof(AddReviewViewModel.Review)}={item.Id}");
         }
 
         private ICommand cmdHapus;
