@@ -18,8 +18,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         Services.MyHttpClient myHttpClient;
         Random rnd = new Random();
         public AddReviewViewModel()
-        {
-            //reviewBukuGet = new ReviewBuku(); 
+        { 
             Title = "Tambah Ulasan";
 
             IsBusy = true;
@@ -31,7 +30,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         }
 
         bool isNewItem = true;
-
         private ICommand cmdKirim;
         public ICommand CmdKirim
         {
@@ -183,6 +181,31 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             isNewItem = false;
         }
 
+        private ICommand cmdHapus;
+        public ICommand CmdHapus
+        {
+            get
+            {
+                if (cmdHapus == null)
+                {
+                    cmdHapus = new Command(PerformCmdHapus);
+                }
+
+                return cmdHapus;
+            }
+        }
+
+        private async void PerformCmdHapus()
+        {
+            bool jwb = await Application.Current.MainPage.DisplayAlert("Hapus Ulasan",
+                "Apakah anda yakin untuk menghapus Ulasan ini?", "Ya", "Tidak");
+            if (jwb)
+            {
+                string hsl = await myHttpClient.HttpDelete("api/XReview/", r2.Id.ToString());
+                await Shell.Current.GoToAsync("..");
+            }
+        }
+
         public ReviewBuku r2 = new ReviewBuku();
 
         private string userId = Application.Current.Properties["WebUsername"] as string;
@@ -239,35 +262,10 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             set => SetProperty(ref hapusIsVisible, value);
         }
 
-        private ICommand cmdHapus;
-
-        public ICommand CmdHapus
-        {
-            get
-            {
-                if (cmdHapus == null)
-                {
-                    cmdHapus = new Command(PerformCmdHapus);
-                }
-
-                return cmdHapus;
-            }
-        }
-
-        private async void PerformCmdHapus()
-        {
-            bool jwb = await Application.Current.MainPage.DisplayAlert("Hapus Ulasan",
-                "Apakah anda yakin untuk menghapus Ulasan ini?", "Ya", "Tidak");
-            if (jwb)
-            {
-                string hsl = await myHttpClient.HttpDelete("api/XReview/", r2.Id.ToString());
-                await Shell.Current.GoToAsync("..");
-            }
-        }
-
         private string kirimText;
-        public string KirimText 
+        public string KirimText
         { get => kirimText; set => SetProperty(ref kirimText, value); }
+
     }
 }
 
