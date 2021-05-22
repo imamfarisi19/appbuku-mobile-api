@@ -20,12 +20,10 @@
                 <Entry Text="{Binding ReviewById.IsiReview}" />
                 <Label Text="Peringkat Buku (1 - 5)" />
                 <Entry Text="{Binding ReviewById.Rating}" Keyboard="Numeric"/>
-                <Label Text="Buku ke : "/>
-                <Label Text="{Binding ReviewById.BukuId}"/>
             </StackLayout>
 
             <StackLayout Padding="0">
-                <Button Text="Kirim" Margin="0" Command="{Binding CmdKirim}" />
+                <Button Text="{Binding KirimText}" Margin="0,10,0,0" Command="{Binding CmdKirim}" />
                 <Button Text="Kembali" Margin="0, 10" Command="{Binding CmdBatal}"/>
                 <Button Text="Hapus" Margin="0" Command="{Binding CmdHapus}" IsVisible="{Binding HapusIsVisible}" />
             </StackLayout>
