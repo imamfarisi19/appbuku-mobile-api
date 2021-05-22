@@ -17,11 +17,10 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         // Deklarasi MyHttpClient Service + Constructor Class
         Services.MyHttpClient myHttpClient;
         Random rnd = new Random();
-
         public AddReviewViewModel()
         {
             //reviewBukuGet = new ReviewBuku(); 
-            Title = "Ulasan Buku";
+            Title = "Tambah Ulasan";
 
             IsBusy = true;
             string baseUri = Application.Current.Properties["BaseWebUri"] as string;
@@ -55,7 +54,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             r1.Rating = ReviewById.Rating; 
             r1.BukuId = ReviewById.BukuId; 
             r1.Id = ReviewById.Id;
-            r1.UserId = reviewById.UserId;
+            r1.UserId = ReviewById.UserId;
 
             if (BukuKe != null)
             {
@@ -140,11 +139,13 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             if (int.TryParse(theBukuId, out id) == false)
                 return;
 
+            KirimText = "Kirim";
             BukuKe = theBukuId;
 
-            string hsl = await myHttpClient.HttpGet("api/XReview/", theBukuId);
+            string hsl = await myHttpClient.HttpGet("api/XReview/", "1");
             reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
 
+            reviewById.UserId = UserId;
             reviewById.BukuId = int.Parse(theBukuId);
         }
         public ReviewBuku r3 = new ReviewBuku();
@@ -172,6 +173,7 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             if (int.TryParse(review, out id) == false)
                 return;
             Title = "Perbarui Ulasan";
+            KirimText = "Perbarui";
 
             string hsl = await myHttpClient.HttpGet("api/XReview/", review);
             reviewById = JsonConvert.DeserializeObject<ReviewBuku>(hsl);
@@ -182,6 +184,10 @@ namespace AppBuku.TMobileFromWeb.ViewModels
         }
 
         public ReviewBuku r2 = new ReviewBuku();
+
+        private string userId = Application.Current.Properties["WebUsername"] as string;
+        public string UserId
+        { get => userId; set => SetProperty(ref userId, value); }
 
         private string nama;
         public string Nama
@@ -258,6 +264,10 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 await Shell.Current.GoToAsync("..");
             }
         }
+
+        private string kirimText;
+        public string KirimText 
+        { get => kirimText; set => SetProperty(ref kirimText, value); }
     }
 }
 
