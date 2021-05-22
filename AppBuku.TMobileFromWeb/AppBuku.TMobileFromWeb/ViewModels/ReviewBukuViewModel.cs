@@ -38,9 +38,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
             set { SetProperty(ref bukuEdit, value); }
         }
 
-
-        
-
         public string theId;
         public string TheId
         {
