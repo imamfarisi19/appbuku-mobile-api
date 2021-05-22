@@ -95,7 +95,6 @@ namespace AppBuku.TMobileFromWeb.ViewModels
                 {
                     cmdAddTapped = new Command<Buku>(PerformCmdAddTapped);
                 }
-
                 return cmdAddTapped;
             }
         }
